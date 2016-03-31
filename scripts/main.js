@@ -48,13 +48,13 @@ var linePoints = [
 
 ];
 var points = [
-  {'position2013':[126, 309], 'position2014':[127, 308], 'position2015':[156, 260],'id':'bioSens','color':'#000000','text':'Bioacoustic Sensing','form':true},
-  {'position2014':[133, 300], 'position2015':[142, 289],'id':'digSec','color':'#000000','text':'Digital Security','form':true},
-  {'position2014':[139, 295], 'position2015':[137, 296],'id':'virPerAs','color':'#000000','text':'Virtual Personal Assistants','form':true},
+  {'position2013':[126, 309], 'position2014':[127, 308], 'position2015':[156, 258],'id':'bioSens','color':'#000000','text':'Bioacoustic Sensing','form':true},
+  {'position2014':[133, 300], 'position2015':[142, 287],'id':'digSec','color':'#000000','text':'Digital Security','form':true},
+  {'position2014':[139, 295], 'position2015':[137, 294],'id':'virPerAs','color':'#000000','text':'Virtual Personal Assistants','form':true},
   {'position2014':[144, 285],'id':'smaWor','color':'#000000','text':'SmartWorkspace','form':true},
-  {'position2014':[161, 246], 'position2015':[187, 146],'id':'conHom','color':'#000000','text':'Connected Home','form':true},
-  {'position2013':[135, 299], 'position2015':[133, 302],'id':'smaDu','color':'#000000','text':'Smart Dust','form':true},
-  {'position2015':[145, 283],'id':'peoLitTec','color':'#000000','text':'People-Literate Technology','form':true},
+  {'position2014':[161, 246], 'position2015':[187, 144],'id':'conHom','color':'#000000','text':'Connected Home','form':true},
+  {'position2013':[135, 299], 'position2015':[133, 300],'id':'smaDu','color':'#000000','text':'Smart Dust','form':true},
+  {'position2015':[145, 281],'id':'peoLitTec','color':'#000000','text':'People-Literate Technology','form':true},
   {'position2013':[155, 259], 'position2014':[169, 215], 'position2015':[171, 209],'id':'quanCom','color':'#000000','text':'Quantum Computing','form':true},
   {'position2013':[162, 238],'id':'quanSelf','color':'#000000','text':'Quantified Self','form':true},
   {'position2013':[165, 228], 'position2014':[176, 188],'id':'3dBio','color':'#000000','text':'3D Biporinting','form':true},
@@ -69,7 +69,7 @@ var points = [
   {'position2013':[179, 175], 'position2014':[184, 161], 'position2015':[185, 154],'id':'afectComp','color':'#000000','text':'Affective Computing','form':true},
   {'position2015':[189, 139],'id':'ioTPla','color':'#000000','text':'IoT Platform','form':true},
   {'position2013':[183, 161], 'position2014':[198, 105],'id':'presAna','color':'#000000','text':'Prescriptive Analytics','form':true},
-  {'position2013':[191, 125], 'position2014':[207, 66], 'position2015':[226, 44],'id':'autoVeh','color':'#000000','text':'Autonomus Vehicles','form':true},
+  {'position2013':[191, 125], 'position2014':[207, 66], 'position2015':[226, 42],'id':'autoVeh','color':'#000000','text':'Autonomus Vehicles','form':true},
   {'position2013':[193, 118], 'position2014':[193, 122], 'position2015':[191, 130],'id':'bioc','color':'#000000','text':'Biochips','form':true},
   {'position2015':[192, 123],'id':'citDatSci','color':'#000000','text':'Citizen Data Science','form':true},
   {'position2013':[195, 111], 'position2014':[194, 116], 'position2015':[194, 116],'id':'neur','color':'#000000','text':'Neurobusiness','form':true},
@@ -117,8 +117,8 @@ var points = [
 ];
   
 var svg = d3.select("#graph").append("svg")
-    .attr("width", 960)
-    .attr("height", 500);
+    .attr("width", 650)
+    .attr("height", 400);
 
 var path = svg.append("path")
     .data([linePoints])
@@ -126,7 +126,8 @@ var path = svg.append("path")
     //.tension(0.9) // Catmull–Rom
     .interpolate("basis"))
     .style('fill', 'none')
-    .style('stroke', '#f50');
+    .style('stroke', '#5FA5D6')
+    .style('stroke-width', '3');
 
 var circle = svg.selectAll(".point")
     .data(points)
@@ -140,7 +141,7 @@ var circle = svg.selectAll(".point")
     .attr("transform", function(d) { return "translate(" + d.position2015 + ")";})
     .style('fill', function(d){return d.color})
     .style('stroke', 'none')
-    .style('stroke-width', '5px');
+    .style('stroke-width', '4px');
 
 svg.selectAll(".Circle")
     .on("mouseover", function() {
@@ -154,7 +155,7 @@ svg.selectAll(".Circle")
         d3.select(this)
           .transition()
           .style("fill",'#000000')
-          .attr('r', 5);
+          .attr('r', 4);
      })    
 
 /*var circle = svg.append("circle")
